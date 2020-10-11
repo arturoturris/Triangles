@@ -1,5 +1,5 @@
 const { expect } = require("@jest/globals");
-const crearTriangulo = require('../triangulo');
+const crearTriangulo = require('../triangulo_test');
 
 describe('Creación de triángulos',() => {
     test('Creación de triángulo equilátero', () => {

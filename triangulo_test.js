@@ -9,6 +9,7 @@ const crearTriangulo = (propiedades) => {
     else if(esEscaleno(propiedades))
         return 'Es un triángulo escaleno.';
 }
+module.exports = crearTriangulo;
 
 const sonLadosPositivos = (propiedades) => {
     return (propiedades.lado1 > 0 && propiedades.lado2 > 0 && propiedades.lado3 > 0);
@@ -25,20 +26,3 @@ const esIsosceles = (propiedades) => {
 const esEscaleno = (propiedades) => {
     return (propiedades.lado1 !== propiedades.lado2 && propiedades.lado2 !== propiedades.lado3 && propiedades.lado1 !== propiedades.lado3);
 }
-
-const formularioTriangulos = document.querySelector('#FT');
-
-const main = () => {
-    formularioTriangulos.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const propiedades = {
-            lado1: formularioTriangulos.querySelector('input[name=lado1]').value,
-            lado2: formularioTriangulos.querySelector('input[name=lado2]').value,
-            lado3: formularioTriangulos.querySelector('input[name=lado3]').value
-        };
-    
-        document.querySelector("#mensaje").innerHTML = crearTriangulo(propiedades);
-    });
-}
-
-main();
