@@ -1,0 +1,22 @@
+{
+  "name": "escenario-de-prueba",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arturoturris/Triangulos.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arturoturris/Triangulos/issues"
+  },
+  "homepage": "https://github.com/arturoturris/Triangulos#readme",
+  "devDependencies": {
+    "jest": "^26.5.2"
+  }
+}
