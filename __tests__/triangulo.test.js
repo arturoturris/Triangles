@@ -14,4 +14,7 @@ describe('Creación de triángulos',() => {
     test('Creación de triángulo lados negativos', () => {
         expect(crearTriangulo({lado1: -5, lado2: -5, lado3: -2})).toBe('Los lados de un triángulo no pueden ser negativos o iguales a 0.');
     });
+    test('Creación de triángulo lados con valores decimales', () => {
+        expect(crearTriangulo({lado1: 1.2, lado2: 1.2, lado3: 1.2})).toBe('Los lados del triángulo no pueden tener valores decimales.');
+    });
 });
