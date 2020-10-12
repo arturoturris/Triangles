@@ -13,6 +13,8 @@ const crearTriangulo = (propiedades) => {
         return 'Es un triángulo isósceles.';
     else if(esEscaleno(propiedades))
         return 'Es un triángulo escaleno.';
+    if(!trianguloValido(propiedades))
+        return 'Las medidas dadas no pueden formar un triángulo.';
 }
 module.exports = crearTriangulo;
 
@@ -42,4 +44,8 @@ const esEscaleno = (propiedades) => {
 
 const numerosDecimales = (propiedades) => {
     return (Number.isInteger(propiedades.lado1) && Number.isInteger(propiedades.lado2) && Number.isInteger(propiedades.lado3));
+}
+
+const trianguloValido = (propiedades) =>{
+    return (propiedades.lado1 < (propiedades.lado2 + propiedades.lado3) && propiedades.lado2 < (propiedades.lado1 + propiedades.lado3) && propiedades.lado3 < (propiedades.lado1 + propiedades.lado2))
 }
