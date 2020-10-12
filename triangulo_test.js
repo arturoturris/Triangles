@@ -17,7 +17,7 @@ const crearTriangulo = (propiedades) => {
 module.exports = crearTriangulo;
 
 const estanDefinidosLosLados = (propiedades) => {
-    return (propiedades.lado1 != '' && propiedades.lado2 != '' && propiedades.lado3 != '');
+    return (propiedades.lado1 !== '' && propiedades.lado2 !== '' && propiedades.lado3 !== '');
 }
 
 const sonLadosIgualesACero = (propiedades) => {
