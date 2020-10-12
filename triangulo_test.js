@@ -4,6 +4,8 @@ const crearTriangulo = (propiedades) => {
 
     if(!sonLadosPositivos(propiedades))
         return 'Los lados de un triángulo no pueden ser negativos o iguales a 0.';
+    if(!numerosDecimales(propiedades))
+        return 'Los lados del triángulo no pueden tener valores decimales.';
 
     if(!numerosDecimales(propiedades))
         return 'Los lados del triángulo no pueden tener valores decimales.';
