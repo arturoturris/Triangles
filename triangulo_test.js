@@ -1,6 +1,12 @@
 const crearTriangulo = (propiedades) => {
+    if(!estanDefinidosLosLados(propiedades))
+        return 'Todos los lados del tringulo deben estar definidos.';
+
     if(!sonLadosPositivos(propiedades))
         return 'Los lados de un triángulo no pueden ser negativos o iguales a 0.';
+
+    if(!numerosDecimales(propiedades))
+        return 'Los lados del triángulo no pueden tener valores decimales.';
 
     if(esEquilatero(propiedades))
         return 'Es un triángulo equilátero.';
@@ -10,6 +16,10 @@ const crearTriangulo = (propiedades) => {
         return 'Es un triángulo escaleno.';
 }
 module.exports = crearTriangulo;
+
+const estanDefinidosLosLados = (propiedades) => {
+    return (propiedades.lado1 != '' && propiedades.lado2 != '' && propiedades.lado3 != '');
+}
 
 const sonLadosPositivos = (propiedades) => {
     return (propiedades.lado1 > 0 && propiedades.lado2 > 0 && propiedades.lado3 > 0);
@@ -25,4 +35,8 @@ const esIsosceles = (propiedades) => {
 
 const esEscaleno = (propiedades) => {
     return (propiedades.lado1 !== propiedades.lado2 && propiedades.lado2 !== propiedades.lado3 && propiedades.lado1 !== propiedades.lado3);
+}
+
+const numerosDecimales = (propiedades) => {
+    return (Number.isInteger(propiedades.lado1) && Number.isInteger(propiedades.lado2) && Number.isInteger(propiedades.lado3));
 }
