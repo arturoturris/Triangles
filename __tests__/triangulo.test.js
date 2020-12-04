@@ -15,16 +15,21 @@ describe('Creación de triángulos',() => {
         expect(crearTriangulo({lado1: 1.2, lado2: 1.2, lado3: 1.2})).toBe('Los lados del triángulo no pueden tener valores decimales.');
     });
     test('CP_5 - Creación de triángulo sin lados definidos', () => {
-        expect(crearTriangulo({lado1: NaN, lado2: NaN, lado3: NaN})).toBe('Todos los lados del tringulo deben estar definidos.');
+        expect(crearTriangulo({lado1: '', lado2: '', lado3: ''})).toBe('Todos los lados del triángulo deben estar definidos.');
     });
     test('CP_6 - Creación de triángulo lados negativos', () => {
         expect(crearTriangulo({lado1: -5, lado2: -5, lado3: -2})).toBe('Los lados de un triángulo no pueden ser negativos.');
     });
     test('CP_7 - Creación de triángulo lados conteniendo 0.', () => {
-        expect(crearTriangulo({lado1: 3, lado2: 2, lado3: 0})).toBe('Los lados de un triángulo no pueden ser iguales a 0.');
+        expect(crearTriangulo({lado1: 3, lado2: 2, lado3: "0"})).toBe('Los lados de un triángulo no pueden ser iguales a 0.');
     });
     test('CP_8 - Creación de triángulo con lados inválidos.', () => {
         expect(crearTriangulo({lado1: 3, lado2: 2, lado3: 7})).toBe('Las medidas dadas no pueden formar un triángulo.');
     });
- 
+    test('CP_9 - Denegar caracteres alfabéticos.', () => {
+        expect(crearTriangulo({lado1: 5, lado2: 5, lado3: "a"})).toBe('Todos los lados del triángulo deben ser números.');
+    });
+    test('CP_10 - Denegar caracteres especiales.', () => {
+        expect(crearTriangulo({lado1: 5, lado2: 5, lado3: "*"})).toBe('Todos los lados del triángulo deben ser números.');
+    });
 });

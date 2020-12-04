@@ -1,8 +1,10 @@
 const crearTriangulo = (propiedades) => {
     if(!estanDefinidosLosLados(propiedades))
-        return 'Todos los lados del tringulo deben estar definidos.';
+        return 'Todos los lados del triángulo deben estar definidos.';
+    if(!sonNumeros(propiedades))
+        return 'Todos los lados del triángulo deben ser números.';
     if(sonLadosIgualesACero(propiedades))
-        return 'Los lados de un triángulo no pueden ser iguales a 0.';
+        return 'Los lados de un triángulo no pueden ser iguales a 0.'    
     if(!sonLadosPositivos(propiedades))
         return 'Los lados de un triángulo no pueden ser negativos.';
     if(!sonNumerosEnteros(propiedades))
@@ -18,8 +20,15 @@ const crearTriangulo = (propiedades) => {
 }
 module.exports = crearTriangulo;
 
+const sonNumeros = (propiedades) => {
+    const regex = new RegExp(/\d+(.\d+)?/);
+    return (regex.test(propiedades.lado1) && 
+            regex.test(propiedades.lado2) &&
+            regex.test(propiedades.lado3));
+}
+
 const estanDefinidosLosLados = (propiedades) => {
-    return (!isNaN(propiedades.lado1) && !isNaN(propiedades.lado1) && !isNaN(propiedades.lado1));
+    return (!!propiedades.lado1 && !!propiedades.lado2 && !!propiedades.lado3);
 }
 
 const sonLadosIgualesACero = (propiedades) => {
